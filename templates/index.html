@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Milk Tea - Survey Form</title>
+    <link rel="stylesheet" href="../static/style.css" >
+   <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+  <header class="header">
+    <h1 id="title" class="text-center">Milk Tea Survey Form</h1>
+    <p id="description" class="description text-center">
+      Let us know which one you like most.
+    </p>
+    {% if message %}
+
+    <p class="message text-center" style="color: red;">{{ message }}</p>
+
+    {% endif%}
+  </header>
+  <form id="survey-form" action="/submit" method="POST">
+    <div class="form-group">
+      <label id="name-label" for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        placeholder="Enter your name"
+        autocomplete="off"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label id="email-label" for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        placeholder="Enter your email"
+        autocomplete="off"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label id="number-label" for="age"
+        >Age</label
+      >
+      <input
+        type="number"
+        name="age"
+        id="age"
+        min="10"
+        max="99"
+        class="form-control"
+        placeholder="Enter your age"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <p>Where do you usually order milk tea?</p>
+      <select id="dropdown" name="role" class="form-control" required>
+        <option disabled selected value>Select one</option>
+        <option value="chatime">Chatime</option>
+        <option value="serenitea">Serenitea</option>
+        <option value="coco">Coco</option>
+        <option value="macao-imperial">Macao Imperial</option>
+        <option value="gong-cha">Gong Cha</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <p>Which variety do you order?</p>
+      <select id="dropdown2" name="whichtea" class="form-control" required>
+        <option disabled selected value>Select one</option>
+        <option value="traditional milk tea">Traditional Milk Tea</option>
+        <option value="roasted milk tea">Roasted Milk Tea</option>
+        <option value="caramel milk tea">Caramel Milk Tea</option>
+        <option value="oolong milk tea">Oolong Milk Tea</option>
+        <option value="strawberry milk tea">Strawberry Milk Tea</option>
+        <option value="banana milk tea">Banana Milk Tea</option>
+        <option value="red bean milk tea">Red Bean Milk Tea</option>
+        <option value="wintermelon milk tea">Wintermelon Milk Tea</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <p>How many times in a week do you drink milk tea?</p>
+      <label>
+        <input
+          name="userrecommend"
+          value="everyday"
+          type="radio"
+          class="input-radio"
+          checked
+        />Everyday</label
+      >
+      <label>
+        <input
+          name="userrecommend"
+          value="twice"
+          type="radio"
+          class="input-radio"
+        />Twice a week</label
+      >
+
+      <label
+        ><input
+          name="userrecommend"
+          value="once_a_week"
+          type="radio"
+          class="input-radio"
+        />Once a week</label
+      >
+    </div>
+
+    <div class="form-group">
+      <p>Why do you like drinking milk tea? </p>
+      <textarea
+        id="comments"
+        class="input-textarea"
+        name="comment"
+        placeholder="Tell us here."
+      ></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" id="submit" class="submit-button">
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
